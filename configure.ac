@@ -16,5 +16,9 @@ AC_PROG_LIBTOOL
 AC_C_CONST
 AC_TYPE_SIZE_T
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([
+	Makefile
+	app/Makefile
+	app/puzzler/Makefile
+])
 AC_OUTPUT

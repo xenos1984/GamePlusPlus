@@ -7,7 +7,17 @@ Makefile.in
 /config.status
 /config.sub
 /configure
-/autom4te.cache
-/config
+/autom4te.cache/
+/config/
+/stamp-h1
+/libtool
+/config.h
+
+.deps/
+*.o
+*.lo
+*.la
 
 *.sw?
+
+/app/puzzler/gpp_puzzler

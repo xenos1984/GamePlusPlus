@@ -1,6 +1,6 @@
-#include <stdio>
+#include <iostream>
 
-int main(int argc, char** arv)
+int main(int argc, char** argv)
 {
 	std::cout << "Success." << std::endl;
 
