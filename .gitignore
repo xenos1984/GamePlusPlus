@@ -1,0 +1,13 @@
+Makefile
+Makefile.in
+/aclocal.m4
+/config.guess
+/config.h.in
+/config.log
+/config.status
+/config.sub
+/configure
+/autom4te.cache
+/config
+
+*.sw?
