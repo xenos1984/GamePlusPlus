@@ -4,8 +4,8 @@ set -e
 
 mkdir -p config
 touch Makefile.am configure.ac
-aclocal #-I m4
 libtoolize -f
+aclocal -I m4
 autoheader
 automake -a -f --foreign
 autoconf
