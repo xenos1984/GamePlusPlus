@@ -1,1 +1,1 @@
-SUBDIRS = app
+SUBDIRS = gamepp app

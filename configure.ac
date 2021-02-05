@@ -22,5 +22,6 @@ AC_CONFIG_FILES([
 	Makefile
 	app/Makefile
 	app/puzzler/Makefile
+	gamepp/Makefile
 ])
 AC_OUTPUT
