@@ -5,6 +5,6 @@ libbase_la_SOURCES = \
 	Move.h \
 	State.h \
 	\
-	Game.cpp
-#	Move.cpp \
-#	State.cpp
+	Game.cpp \
+	Move.cpp \
+	State.cpp

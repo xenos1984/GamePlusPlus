@@ -7,6 +7,6 @@ libarithmetic_la_SOURCES = \
 	Rational.h \
 	\
 	ArithmeticGame.cpp \
+	ArithmeticMove.cpp \
+	ArithmeticState.cpp \
 	Rational.cpp
-#	ArithmeticMove.cpp \
-#	ArithmeticState.cpp
