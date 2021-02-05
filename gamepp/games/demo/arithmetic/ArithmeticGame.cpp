@@ -128,7 +128,35 @@ namespace GamePP
 			{
 			}
 
-				return v;
+			return v;
+		}
+
+		bool ArithmeticGame::isTerminal(const Base::State& state)
+		{
+			try
+			{
+				auto s = dynamic_cast<const ArithmeticState&>(state);
+
+				return s.nums.size() == 1;
+			}
+			catch(const std::bad_cast&)
+			{
+				return false;
+			}
+		}
+
+		double ArithmeticGame::getGoal(const Base::State& state)
+		{
+			try
+			{
+				auto s = dynamic_cast<const ArithmeticState&>(state);
+
+				return (s.nums.count(fin) ? 1.0 : -1.0);
+			}
+			catch(const std::bad_cast&)
+			{
+				return 0.0;
 			}
 		}
 	}
+}

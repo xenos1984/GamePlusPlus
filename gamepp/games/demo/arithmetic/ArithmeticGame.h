@@ -24,6 +24,8 @@ namespace GamePP
 			bool isLegalMove(const Base::State& state, const Base::Move& move);
 			std::unique_ptr<Base::State> getNextState(const Base::State& state, const Base::Move& move);
 			std::vector<std::unique_ptr<Base::Move>> getAllowedMoves(const Base::State& state);
+			bool isTerminal(const Base::State& state);
+			double getGoal(const Base::State& state);
 		};
 	}
 }

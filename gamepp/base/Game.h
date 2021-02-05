@@ -34,6 +34,8 @@ namespace GamePP
 			virtual bool isLegalMove(const State& state, const Move& move) = 0;
 			virtual std::unique_ptr<State> getNextState(const State& state, const Move& move) = 0;
 			virtual std::vector<std::unique_ptr<Move>> getAllowedMoves(const State& state) = 0;
+			virtual bool isTerminal(const State& state) = 0;
+			virtual double getGoal(const State& state) = 0;
 
 			static std::shared_ptr<Game> create(const std::string& type);
 
