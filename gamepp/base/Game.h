@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <map>
+#include <vector>
 #include <mutex>
 #include <gamepp/base/Move.h>
 #include <gamepp/base/State.h>
@@ -32,6 +33,7 @@ namespace GamePP
 			virtual std::unique_ptr<State> getInitialState(void) = 0;
 			virtual bool isLegalMove(const State& state, const Move& move) = 0;
 			virtual std::unique_ptr<State> getNextState(const State& state, const Move& move) = 0;
+			virtual std::vector<std::unique_ptr<Move>> getAllowedMoves(const State& state) = 0;
 
 			static std::shared_ptr<Game> create(const std::string& type);
 

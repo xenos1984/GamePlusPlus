@@ -23,6 +23,7 @@ namespace GamePP
 			std::unique_ptr<Base::State> getInitialState(void);
 			bool isLegalMove(const Base::State& state, const Base::Move& move);
 			std::unique_ptr<Base::State> getNextState(const Base::State& state, const Base::Move& move);
+			std::vector<std::unique_ptr<Base::Move>> getAllowedMoves(const Base::State& state);
 		};
 	}
 }

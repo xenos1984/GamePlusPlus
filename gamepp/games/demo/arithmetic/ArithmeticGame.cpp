@@ -82,5 +82,53 @@ namespace GamePP
 
 			return std::make_unique<ArithmeticState>(n);
 		}
+
+		std::vector<std::unique_ptr<Base::Move>> ArithmeticGame::getAllowedMoves(const Base::State& state)
+		{
+			std::vector<std::unique_ptr<Base::Move>> v;
+
+			try
+			{
+				auto s = dynamic_cast<const ArithmeticState&>(state);
+				auto n = s.nums;
+
+				if(n.size() == 1)
+					return v;
+
+				std::set<Rational> s1(n.begin(), n.end());
+
+				for(auto x : s1)
+				{
+					auto xp = n.extract(x);
+					std::set<Rational> s2(n.lower_bound(x), n.end());
+
+					for(auto y : s2)
+					{
+						auto yp = n.extract(y);
+
+						v.push_back(std::make_unique<ArithmeticMove>('+', x, y));
+						v.push_back(std::make_unique<ArithmeticMove>('*', x, y));
+						v.push_back(std::make_unique<ArithmeticMove>('-', x, y));
+						if(y != 0)
+							v.push_back(std::make_unique<ArithmeticMove>('/', x, y));
+						if(x != y)
+						{
+							v.push_back(std::make_unique<ArithmeticMove>('-', y, x));
+							if(x != 0)
+								v.push_back(std::make_unique<ArithmeticMove>('/', y, x));
+						}
+
+						n.insert(move(yp));
+					}
+
+					n.insert(move(xp));
+				}
+			}
+			catch(const std::bad_cast&)
+			{
+			}
+
+				return v;
+			}
+		}
 	}
-}
