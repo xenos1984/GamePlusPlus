@@ -25,6 +25,8 @@ namespace GamePP
 			bool isPuzzle(void);
 			virtual unsigned int numRoles(void) = 0;
 
+			const std::string& getName(void) { return name; }
+
 			static std::shared_ptr<Game> create(const std::string& type);
 
 			virtual ~Game(void);

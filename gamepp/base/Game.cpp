@@ -17,7 +17,7 @@ namespace GamePP
 			}
 
 			auto sp = std::make_shared<Games::ArithmeticGame>(std::multiset<Rational>{3, 3, 8, 3}, 24);
-			games.insert({type, sp});
+			games.insert({sp->getName(), sp});
 			return sp;
 		}
 

@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 
 	auto g = GamePP::Base::Game::create(argv[1]);
 
-	std::cout << "Success." << std::endl;
+	std::cout << g->getName() << std::endl;
 
 	return 0;
 }
