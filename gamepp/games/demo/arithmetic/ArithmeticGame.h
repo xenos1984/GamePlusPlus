@@ -18,14 +18,14 @@ namespace GamePP
 		public:
 			ArithmeticGame(const std::multiset<Rational>& i, Rational f);
 
-			unsigned int numRoles(void) { return 1; }
+			unsigned int numRoles(void) const { return 1; }
 
-			std::unique_ptr<Base::State> getInitialState(void);
-			bool isLegalMove(const Base::State& state, const Base::Move& move);
-			std::unique_ptr<Base::State> getNextState(const Base::State& state, const Base::Move& move);
-			std::vector<std::unique_ptr<Base::Move>> getAllowedMoves(const Base::State& state);
-			bool isTerminal(const Base::State& state);
-			double getGoal(const Base::State& state);
+			std::unique_ptr<Base::State> getInitialState(void) const;
+			bool isLegalMove(const Base::State& state, const Base::Move& move) const;
+			std::unique_ptr<Base::State> getNextState(const Base::State& state, const Base::Move& move) const;
+			std::vector<std::unique_ptr<Base::Move>> getLegalMoves(const Base::State& state) const;
+			bool isTerminal(const Base::State& state) const;
+			double getGoal(const Base::State& state) const;
 		};
 	}
 }

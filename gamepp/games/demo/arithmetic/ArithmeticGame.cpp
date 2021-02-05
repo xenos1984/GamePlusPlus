@@ -23,12 +23,12 @@ namespace GamePP
 		{
 		}
 
-		std::unique_ptr<Base::State> ArithmeticGame::getInitialState(void)
+		std::unique_ptr<Base::State> ArithmeticGame::getInitialState(void) const
 		{
 			return std::make_unique<ArithmeticState>(ini);
 		}
 
-		bool ArithmeticGame::isLegalMove(const Base::State& state, const Base::Move& move)
+		bool ArithmeticGame::isLegalMove(const Base::State& state, const Base::Move& move) const
 		{
 			try
 			{
@@ -52,7 +52,7 @@ namespace GamePP
 			}
 		}
 
-		std::unique_ptr<Base::State> ArithmeticGame::getNextState(const Base::State& state, const Base::Move& move)
+		std::unique_ptr<Base::State> ArithmeticGame::getNextState(const Base::State& state, const Base::Move& move) const
 		{
 			if(!isLegalMove(state, move))
 				return nullptr;
@@ -83,7 +83,7 @@ namespace GamePP
 			return std::make_unique<ArithmeticState>(n);
 		}
 
-		std::vector<std::unique_ptr<Base::Move>> ArithmeticGame::getAllowedMoves(const Base::State& state)
+		std::vector<std::unique_ptr<Base::Move>> ArithmeticGame::getLegalMoves(const Base::State& state) const
 		{
 			std::vector<std::unique_ptr<Base::Move>> v;
 
@@ -131,7 +131,7 @@ namespace GamePP
 			return v;
 		}
 
-		bool ArithmeticGame::isTerminal(const Base::State& state)
+		bool ArithmeticGame::isTerminal(const Base::State& state) const
 		{
 			try
 			{
@@ -145,7 +145,7 @@ namespace GamePP
 			}
 		}
 
-		double ArithmeticGame::getGoal(const Base::State& state)
+		double ArithmeticGame::getGoal(const Base::State& state) const
 		{
 			try
 			{

@@ -25,17 +25,17 @@ namespace GamePP
 		public:
 			Game(const std::string& name) : name(name) {};
 
-			bool isPuzzle(void);
-			virtual unsigned int numRoles(void) = 0;
+			bool isPuzzle(void) const;
+			virtual unsigned int numRoles(void) const = 0;
 
-			const std::string& getName(void) { return name; }
+			const std::string& getName(void) const { return name; }
 
-			virtual std::unique_ptr<State> getInitialState(void) = 0;
-			virtual bool isLegalMove(const State& state, const Move& move) = 0;
-			virtual std::unique_ptr<State> getNextState(const State& state, const Move& move) = 0;
-			virtual std::vector<std::unique_ptr<Move>> getAllowedMoves(const State& state) = 0;
-			virtual bool isTerminal(const State& state) = 0;
-			virtual double getGoal(const State& state) = 0;
+			virtual std::unique_ptr<State> getInitialState(void) const = 0;
+			virtual bool isLegalMove(const State& state, const Move& move) const = 0;
+			virtual std::unique_ptr<State> getNextState(const State& state, const Move& move) const = 0;
+			virtual std::vector<std::unique_ptr<Move>> getLegalMoves(const State& state) const = 0;
+			virtual bool isTerminal(const State& state) const = 0;
+			virtual double getGoal(const State& state) const = 0;
 
 			static std::shared_ptr<Game> create(const std::string& type);
 

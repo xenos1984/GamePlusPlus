@@ -30,7 +30,7 @@ namespace GamePP
 				games.erase(it);
 		}
 
-		bool Game::isPuzzle(void)
+		bool Game::isPuzzle(void) const
 		{
 			return numRoles() == 1;
 		}
