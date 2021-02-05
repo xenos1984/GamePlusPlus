@@ -13,14 +13,18 @@ namespace GamePP
 		class Game
 		{
 		private:
+			std::string name;
+
 			static std::map<std::string, std::weak_ptr<Game>> games;
 			static std::mutex games_mutex;
-
-		protected:
 			static void remove(const std::string& type);
 
 		public:
+			Game(const std::string& name) : name(name) {};
+
 			static std::shared_ptr<Game> create(const std::string& type);
+
+			virtual ~Game(void);
 		};
 	}
 }

@@ -1,4 +1,4 @@
-#include "Game.h"
+#include <gamepp/base/Game.h>
 
 namespace GamePP
 {
@@ -15,16 +15,16 @@ namespace GamePP
 					return sp;
 			}
 
-			auto sp = std::make_shared<Game>();
+			auto sp = std::make_shared<Game>(type);
 			games.insert({type, sp});
 			return sp;
 		}
 
-		void Game::remove(const std::string& type)
+		Game::~Game(void)
 		{
 			std::lock_guard<std::mutex> lock(games_mutex);
 
-			auto it = games.find(type);
+			auto it = games.find(name);
 			if(it != games.end())
 				games.erase(it);
 		}
