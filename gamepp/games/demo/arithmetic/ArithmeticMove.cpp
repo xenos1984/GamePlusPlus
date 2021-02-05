@@ -6,7 +6,7 @@ namespace GamePP
 	{
 		void ArithmeticMove::Serialize(std::ostream& os) const
 		{
-			os << "( " << op << " " << x << " " << y << " )";
+			os << "(" << op << " " << x << " " << y << ")";
 		}
 	}
 }

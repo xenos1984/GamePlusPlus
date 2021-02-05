@@ -3,14 +3,14 @@
 
 bool solve(const GamePP::Base::Game& game, const GamePP::Base::State& state)
 {
+	if(game.isTerminal(state))
+		return game.getGoal(state) == 1.0;
+
 	auto moves = game.getLegalMoves(state);
 
-	for(auto it = moves.begin(); it != moves.end(); it++)
+	for(auto it = moves.begin(); it != moves.end(); ++it)
 	{
 		auto next = game.getNextState(state, **it);
-		if(game.isTerminal(*next))
-			return game.getGoal(*next) == 1.0;
-
 		if(solve(game, *next))
 		{
 			std::cout << *next << std::endl;
