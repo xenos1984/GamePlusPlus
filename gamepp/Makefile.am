@@ -1,8 +1,10 @@
-AUTOMAKE_OPTIONS = subdir-objects
+SUBDIRS = base games
 
 lib_LTLIBRARIES = libgamepp.la
 
-libgamepp_la_SOURCES = \
-	base/Game.cpp \
-	games/demo/arithmetic/ArithmeticGame.cpp \
-	games/demo/arithmetic/Rational.cpp
+libgamepp_la_SOURCES =
+nodist_EXTRA_libgamepp_la_SOURCES = dummy.cpp
+
+libgamepp_la_LIBADD = \
+	base/libbase.la \
+	games/demo/arithmetic/libarithmetic.la

@@ -23,5 +23,9 @@ AC_CONFIG_FILES([
 	app/Makefile
 	app/puzzler/Makefile
 	gamepp/Makefile
+	gamepp/base/Makefile
+	gamepp/games/Makefile
+	gamepp/games/demo/Makefile
+	gamepp/games/demo/arithmetic/Makefile
 ])
 AC_OUTPUT
