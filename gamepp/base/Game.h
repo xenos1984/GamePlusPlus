@@ -22,6 +22,9 @@ namespace GamePP
 		public:
 			Game(const std::string& name) : name(name) {};
 
+			bool isPuzzle(void);
+			virtual unsigned int numRoles(void) = 0;
+
 			static std::shared_ptr<Game> create(const std::string& type);
 
 			virtual ~Game(void);

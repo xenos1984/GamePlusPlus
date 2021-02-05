@@ -1,4 +1,5 @@
 #include <gamepp/base/Game.h>
+#include <gamepp/games/demo/arithmetic/ArithmeticGame.h>
 
 namespace GamePP
 {
@@ -15,7 +16,7 @@ namespace GamePP
 					return sp;
 			}
 
-			auto sp = std::make_shared<Game>(type);
+			auto sp = std::make_shared<Games::ArithmeticGame>(std::multiset<Rational>{3, 3, 8, 3}, 24);
 			games.insert({type, sp});
 			return sp;
 		}
@@ -27,6 +28,11 @@ namespace GamePP
 			auto it = games.find(name);
 			if(it != games.end())
 				games.erase(it);
+		}
+
+		bool Game::isPuzzle(void)
+		{
+			return numRoles() == 1;
 		}
 
 		std::map<std::string, std::weak_ptr<Game>> Game::games;

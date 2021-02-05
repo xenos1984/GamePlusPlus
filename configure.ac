@@ -6,7 +6,7 @@ AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([foreign])
 
-: ${CXXFLAGS="-O3 -Wall -Wextra -Wpedantic"}
+: ${CXXFLAGS="-O3 -Wall -Wextra -Wpedantic -std=c++2a"}
 
 # Checks for programs.
 AC_PROG_CXX
