@@ -5,6 +5,8 @@
 #include <string>
 #include <map>
 #include <mutex>
+#include <gamepp/base/Move.h>
+#include <gamepp/base/State.h>
 
 namespace GamePP
 {
@@ -26,6 +28,10 @@ namespace GamePP
 			virtual unsigned int numRoles(void) = 0;
 
 			const std::string& getName(void) { return name; }
+
+			virtual std::unique_ptr<State> getInitialState(void) = 0;
+			virtual bool isLegalMove(const State& state, const Move& move) = 0;
+			virtual std::unique_ptr<State> getNextState(const State& state, const Move& move) = 0;
 
 			static std::shared_ptr<Game> create(const std::string& type);
 
