@@ -25,10 +25,21 @@ namespace GamePP
 		public:
 			Game(const std::string& name) : name(name) {};
 
-			bool isPuzzle(void) const;
-			virtual unsigned int numRoles(void) const = 0;
-
 			const std::string& getName(void) const { return name; }
+
+			// Primary game properties
+			virtual unsigned int numRoles(void) const = 0;
+			virtual bool isSimultaneous(void) const = 0;
+			virtual bool isDeterministic(void) const = 0;
+			virtual bool isPerfectInf(void) const = 0;
+
+			// Secondary (derived) game properties
+			bool isAlternating(void) const { return !isSimultaneous(); }
+			bool isRandom(void) const { return !isDeterministic(); }
+			bool isHiddenInf(void) const { return !isPerfectInf(); }
+			bool isSinglePlayer(void) const { return numRoles() == 1; }
+			bool isMultiPlayer(void) const { return numRoles() > 1; }
+			bool isPuzzle(void) const { return isPerfectInf() && isDeterministic() && isSinglePlayer(); }
 
 			virtual std::unique_ptr<State> getInitialState(void) const = 0;
 			virtual bool isLegalMove(const State& state, const Move& move) const = 0;

@@ -30,11 +30,6 @@ namespace GamePP
 				games.erase(it);
 		}
 
-		bool Game::isPuzzle(void) const
-		{
-			return numRoles() == 1;
-		}
-
 		std::map<std::string, std::weak_ptr<Game>> Game::games;
 		std::mutex Game::games_mutex;
 	}

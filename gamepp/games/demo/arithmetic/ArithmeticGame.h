@@ -19,6 +19,9 @@ namespace GamePP
 			ArithmeticGame(const std::multiset<Rational>& i, Rational f);
 
 			unsigned int numRoles(void) const { return 1; }
+			bool isSimultaneous(void) const { return false; };
+			bool isDeterministic(void) const { return true; };
+			bool isPerfectInf(void) const { return true; };
 
 			std::unique_ptr<Base::State> getInitialState(void) const;
 			bool isLegalMove(const Base::State& state, const Base::Move& move) const;
